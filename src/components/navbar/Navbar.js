@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { contractAddress, NFTAddress, jsonAbi } from '../../config.js';
+
 
 //import { ReactComponent as MobileMenu } from '../../icons/MobileMenu.svg'
 //import { ReactComponent as Close } from '../../icons/Close.svg'
@@ -9,6 +11,8 @@ import header2 from '../../image/header2.png'
 import './navbar.css'
 
 const { ethers } = require("ethers");
+
+const jsonAbi = jsonAbi;
 
 let address, signer, provider;
 
@@ -29,7 +33,11 @@ function handleButtonClick() {
     else {mintNFT()}
 }
 
-function mintNFT() { }
+async function mintNFT() {
+  const nftContract = new ethers.Contract(contractAddress,iface,signer);
+  const nftdata = await nftContract.mintNFT(address,NFTAddress);
+  console.log(nftdata);
+}
 
 async function connectWallet() {
   provider = new ethers.providers.Web3Provider(window.ethereum);
