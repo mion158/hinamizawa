@@ -1,14 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 //import { ReactComponent as MobileMenu } from '../../icons/MobileMenu.svg'
 //import { ReactComponent as Close } from '../../icons/Close.svg'
-import Logo from '../../icons/Logo.png';
-
+import Logo from '../../icons/Logo.png'
 import header1 from '../../image/header1.png'
 import header2 from '../../image/header2.png'
 
 import './navbar.css'
+
+const { ethers } = require("ethers");
+
+let address, signer, provider;
+
+
 const Navbar = () => {
+
+  const [isConnected, toggleConnected] = useState(0);
+
+function setAddress(ethaddy) {
+    address = ethaddy;
+    if (address != null) {  toggleConnected ( !isConnected ); }
+    console.log("Account:", address);
+    alert("Connected: " + address);
+}
+
+function handleButtonClick() {
+  if (!isConnected) {connectWallet()}
+    else {mintNFT()}
+}
+
+function mintNFT() { }
+
+async function connectWallet() {
+  provider = new ethers.providers.Web3Provider(window.ethereum);
+  // Prompt user for account connections
+  await provider.send("eth_requestAccounts", []);
+  signer = provider.getSigner();
+  setAddress( await signer.getAddress() );
+}
   //   const [Mobile, setMobile] = useState(false)
   //   useEffect(() => {
   //     WindowChange()
@@ -108,7 +137,7 @@ const Navbar = () => {
               <span className='textHighlight'>Welcome</span> to Hinamizawa
             </div>
             <div className='navbarBoxSubTitle'>a collection of 5,000 unique NFTs</div>
-            <div className='navbarBoxButton'>MINT NOW</div>
+            <div id="nftButton" className='navbarBoxButton' onClick={handleButtonClick}>{(isConnected) ? 'MINT NOW' : 'CONNECT WALLET'}</div>
           </div>
         </div>
         <div className='navbarRight'>
