@@ -2,7 +2,7 @@ import React from 'react'
 
 //import { ReactComponent as MobileMenu } from '../../icons/MobileMenu.svg'
 //import { ReactComponent as Close } from '../../icons/Close.svg'
-import { ReactComponent as Logo } from '../../icons/Logo.svg'
+import Logo from '../../icons/Logo.png';
 
 import header1 from '../../image/header1.png'
 import header2 from '../../image/header2.png'
@@ -75,14 +75,14 @@ const Navbar = () => {
         <div className='navbarLeft'></div>
         <div className='navbarCenter'>
           <div className='navbarCenterTop'>
-            <Logo />
+            <img src={Logo} alt="Logo" />
           </div>
           <div className='navbarCenterBottom'>
             <div className='navbarCenterItem' onClick={handleMint}>
               Mint
             </div>
             <div className='navbarCenterItem' onClick={handleAbout}>
-              About Binaryville
+              About Hinamizawa
             </div>
             <div className='navbarCenterItem' onClick={handleRoadmap}>
               Roadmap
@@ -105,7 +105,7 @@ const Navbar = () => {
         <div className='navbarCenter'>
           <div className='navbarBox'>
             <div className='navbarBoxTitle'>
-              <span className='textHighlight'>Welcome</span> to Binaryville
+              <span className='textHighlight'>Welcome</span> to Hinamizawa
             </div>
             <div className='navbarBoxSubTitle'>a collection of 5,000 unique NFTs</div>
             <div className='navbarBoxButton'>MINT NOW</div>

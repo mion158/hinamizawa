@@ -19,7 +19,7 @@ const FAQ = () => {
           <div className='faqContainer'>
             <div className='faqItem' onClick={() => setOne(!one)}>
               <div className='faqItemLeft'>
-                <div className='faqItemTitle'>What is Binaryville?</div>
+                <div className='faqItemTitle'>What is Hinamizawa?</div>
               </div>
               <div className='faqItemRight'>{one ? <MinusSVG /> : <PlusSVG />}</div>
             </div>

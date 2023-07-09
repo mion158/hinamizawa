@@ -20,11 +20,11 @@ const Roadmap = () => {
               <div className='roadmapIcon'>
                 <Roadmap1SVG />
               </div>
-              <div className='roadmapText'>One of Binaryville Robot NFT mint collection unit</div>
+              <div className='roadmapText'>One of Hinamizawa Robot NFT mint collection unit</div>
             </div>
 
             <div className='roadmapItemRight'>
-              <div className='roadmapText'>One of Binaryville Robot NFT mint collection unit</div>
+              <div className='roadmapText'>One of Hinamizawa Robot NFT mint collection unit</div>
               <div className='roadmapIcon'>
                 <Roadmap2SVG />
               </div>
@@ -34,11 +34,11 @@ const Roadmap = () => {
               <div className='roadmapIcon'>
                 <Roadmap3SVG />
               </div>
-              <div className='roadmapText'>One of Binaryville Robot NFT mint collection unit</div>
+              <div className='roadmapText'>One of Hinamizawa Robot NFT mint collection unit</div>
             </div>
 
             <div className='roadmapItemRight'>
-              <div className='roadmapText'>One of Binaryville Robot NFT mint collection unit</div>
+              <div className='roadmapText'>One of Hinamizawa Robot NFT mint collection unit</div>
               <div className='roadmapIcon'>
                 <Roadmap4SVG />
               </div>

@@ -27,8 +27,8 @@ const Footer = () => {
             <OpenSeaSVG />
           </div>
           <div className='footerIconText'>Open sea</div>
-          <div className='footerName'>Binaryville</div>
-          <div className='footerName'>About Binaryville</div>
+          <div className='footerName'>Hinamizawa</div>
+          <div className='footerName'>About Hinamizawa</div>
 
           <div className='footerJoin'>Join us</div>
           <div className='footerContainer'>
