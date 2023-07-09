@@ -37,6 +37,8 @@ async function connectWallet() {
   await provider.send("eth_requestAccounts", []);
   signer = provider.getSigner();
   setAddress( await signer.getAddress() );
+  let balance = await signer.getBalance();
+  console.log(await ethers.utils.formatEther(balance));
 }
   //   const [Mobile, setMobile] = useState(false)
   //   useEffect(() => {
