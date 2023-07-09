@@ -35,10 +35,10 @@ const Navbar = () => {
     var scroll = document.getElementsByClassName('roadmapBC')
     window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop - 20 })
   }
-  const handleTeam = () => {
-    var scroll = document.getElementsByClassName('teamBackGround')
-    window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop - 20 })
-  }
+  // const handleTeam = () => {
+  //   var scroll = document.getElementsByClassName('teamBackGround')
+  //   window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop - 20 })
+  // }
   const handleFaq = () => {
     var scroll = document.getElementsByClassName('faqScroll')
     window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop + 20 })
@@ -87,9 +87,9 @@ const Navbar = () => {
             <div className='navbarCenterItem' onClick={handleRoadmap}>
               Roadmap
             </div>
-            <div className='navbarCenterItem' onClick={handleTeam}>
+            {/* <div className='navbarCenterItem' onClick={handleTeam}>
               Team
-            </div>
+            </div> */}
             <div className='navbarCenterItem' onClick={handleFaq}>
               FAQ
             </div>
