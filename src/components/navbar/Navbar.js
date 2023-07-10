@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { contractAddress, NFTAddress, jsonAbi } from '../../config.js';
+import { FormatTypes, Interface } from "@ethersproject/abi";
 
 
 //import { ReactComponent as MobileMenu } from '../../icons/MobileMenu.svg'
@@ -12,7 +13,8 @@ import './navbar.css'
 
 const { ethers } = require("ethers");
 
-const jsonAbi = jsonAbi;
+const iface = new Interface(jsonAbi);
+iface.format(FormatTypes.full);
 
 let address, signer, provider;
 
