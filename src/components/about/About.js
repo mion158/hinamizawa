@@ -40,21 +40,11 @@ const About = () => {
         </div>
         <div className='aboutTextContainer'>
           <div className='aboutText'>
-            On the edge of the world stands the progressive town of Hinamizawa, where technology is a way of life.
+            The town of Hinamizawa, a fictional place from Higurashi no naku koro ni
           </div>
           <div className='aboutText'>
-            The robots who live, work, and play in Hinamizawa learn from an early age that magic is made simply by
-            combining 0's and 1's.
-          </div>
-          <div className='aboutText'>
-            For the Hinamizawa robots, every waking thought and every sleeping dream is consumed with unique
-            permutations… and endless possibilities. This is our happy place, and we invite the dreamers, thinkers,
-            and inventors of the world to unite in our passion for building something out of nothing.
-          </div>
-          <div className='aboutText'>
-            (Well, nothing plus 1.) Visit Hinamizawa and let your imagination soar! This is our first collection
-            of Hinamizawa Robot NFTs is uniquely handdrawn and gives you access to our community. Mint today and
-            join us!
+            Visit Hinamizawa, see the collection of Hinamizawa Robot NFTs 
+            which gives you access to our community. Mint today and join us!
           </div>
         </div>
       </div>
