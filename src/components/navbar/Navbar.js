@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
-import { contractAddress, NFTAddress, jsonAbi } from '../../config.js';
+import React, { useState } from "react";
+import { contractAddress, NFTAddress, jsonAbi } from "../../config.js";
 import { FormatTypes, Interface } from "@ethersproject/abi";
-
 
 //import { ReactComponent as MobileMenu } from '../../icons/MobileMenu.svg'
 //import { ReactComponent as Close } from '../../icons/Close.svg'
-import Logo from '../../icons/Logo.png'
-import header1 from '../../image/header1.png'
-import header2 from '../../image/header2.png'
+import Logo from "../../icons/Logo.png";
+import header1 from "../../image/header1.png";
+import header2 from "../../image/header2.png";
 
-import './navbar.css'
+import "./navbar.css";
 
 const { ethers } = require("ethers");
 
@@ -18,38 +17,41 @@ iface.format(FormatTypes.full);
 
 let address, signer, provider;
 
-
 const Navbar = () => {
-
   const [isConnected, toggleConnected] = useState(0);
 
-function setAddress(ethaddy) {
+  function setAddress(ethaddy) {
     address = ethaddy;
-    if (address != null) {  toggleConnected ( !isConnected ); }
+    if (address != null) {
+      toggleConnected(!isConnected);
+    }
     console.log("Account:", address);
     alert("Connected: " + address);
-}
+  }
 
-function handleButtonClick() {
-  if (!isConnected) {connectWallet()}
-    else {mintNFT()}
-}
+  function handleButtonClick() {
+    if (!isConnected) {
+      connectWallet();
+    } else {
+      mintNFT();
+    }
+  }
 
-async function mintNFT() {
-  const nftContract = new ethers.Contract(contractAddress,iface,signer);
-  const nftdata = await nftContract.mintNFT(address,NFTAddress);
-  console.log(nftdata);
-}
+  async function mintNFT() {
+    const nftContract = new ethers.Contract(contractAddress, iface, signer);
+    const nftdata = await nftContract.mintNFT(address, NFTAddress);
+    console.log(nftdata);
+  }
 
-async function connectWallet() {
-  provider = new ethers.providers.Web3Provider(window.ethereum);
-  // Prompt user for account connections
-  await provider.send("eth_requestAccounts", []);
-  signer = provider.getSigner();
-  setAddress( await signer.getAddress() );
-  let balance = await signer.getBalance();
-  console.log(await ethers.utils.formatEther(balance));
-}
+  async function connectWallet() {
+    provider = new ethers.providers.Web3Provider(window.ethereum);
+    // Prompt user for account connections
+    await provider.send("eth_requestAccounts", []);
+    signer = provider.getSigner();
+    setAddress(await signer.getAddress());
+    let balance = await signer.getBalance();
+    console.log(await ethers.utils.formatEther(balance));
+  }
   //   const [Mobile, setMobile] = useState(false)
   //   useEffect(() => {
   //     WindowChange()
@@ -67,26 +69,26 @@ async function connectWallet() {
 
   //   window.addEventListener('resize', WindowChange)
 
-  const handleMint = () => {}
+  // const handleMint = () => {}
   const handleAbout = () => {
-    var scroll = document.getElementsByClassName('aboutBC')
-    window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop })
-  }
+    var scroll = document.getElementsByClassName("aboutBC");
+    window.scroll({ behavior: "smooth", top: scroll[0].offsetTop });
+  };
   const handleRoadmap = () => {
-    var scroll = document.getElementsByClassName('roadmapBC')
-    window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop - 20 })
-  }
+    var scroll = document.getElementsByClassName("roadmapBC");
+    window.scroll({ behavior: "smooth", top: scroll[0].offsetTop - 20 });
+  };
   // const handleTeam = () => {
   //   var scroll = document.getElementsByClassName('teamBackGround')
   //   window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop - 20 })
   // }
   const handleFaq = () => {
-    var scroll = document.getElementsByClassName('faqScroll')
-    window.scroll({ behavior: 'smooth', top: scroll[0].offsetTop + 20 })
-  }
+    var scroll = document.getElementsByClassName("faqScroll");
+    window.scroll({ behavior: "smooth", top: scroll[0].offsetTop + 20 });
+  };
 
   return (
-    <div className='navbar'>
+    <div className="navbar">
       {/* <div className='navbarMobile'>
         <div className='navbarCenterIcon'>
           <div className='navbarMobileTopRight '>MobileLeftTitle</div>
@@ -112,52 +114,60 @@ async function connectWallet() {
         </div>
       </div>*/}
 
-      <div className='navbarContainer SlideRightAnimation'>
-        <div className='navbarLeft'></div>
-        <div className='navbarCenter'>
-          <div className='navbarCenterTop'>
+      <div className="navbarContainer SlideRightAnimation">
+        <div className="navbarLeft"></div>
+        <div className="navbarCenter">
+          <div className="navbarCenterTop">
             <img src={Logo} alt="Logo" />
           </div>
-          <div className='navbarCenterBottom'>
-            <div className='navbarCenterItem' onClick={handleMint}>
-              Mint
+          <div className="navbarCenterBottom">
+            <div className="navbarCenterItem" onClick={handleButtonClick}>
+              {isConnected ? "MINT NOW" : "CONNECT WALLET"}
             </div>
-            <div className='navbarCenterItem' onClick={handleAbout}>
+            <div className="navbarCenterItem" onClick={handleAbout}>
               About Hinamizawa
             </div>
-            <div className='navbarCenterItem' onClick={handleRoadmap}>
+            <div className="navbarCenterItem" onClick={handleRoadmap}>
               Roadmap
             </div>
             {/* <div className='navbarCenterItem' onClick={handleTeam}>
               Team
             </div> */}
-            <div className='navbarCenterItem' onClick={handleFaq}>
+            <div className="navbarCenterItem" onClick={handleFaq}>
               FAQ
             </div>
           </div>
         </div>
-        <div className='navbarRight'></div>
+        <div className="navbarRight"></div>
       </div>
 
-      <div className='navbarContainer SlideRightAnimation'>
-        <div className='navbarLeft'>
-          <img src={header1} alt='' className='navbarBoxImage' />
+      <div className="navbarContainer SlideRightAnimation">
+        <div className="navbarLeft">
+          <img src={header1} alt="" className="navbarBoxImage" />
         </div>
-        <div className='navbarCenter'>
-          <div className='navbarBox'>
-            <div className='navbarBoxTitle'>
-              <span className='textHighlight'>Welcome</span> to Hinamizawa
+        <div className="navbarCenter">
+          <div className="navbarBox">
+            <div className="navbarBoxTitle">
+              <span className="textHighlight">Welcome</span> to Hinamizawa
             </div>
-            <div className='navbarBoxSubTitle'>a collection of 5,000 unique NFTs</div>
-            <div id="nftButton" className='navbarBoxButton' onClick={handleButtonClick}>{(isConnected) ? 'MINT NOW' : 'CONNECT WALLET'}</div>
+            <div className="navbarBoxSubTitle">
+              a collection of 5,000 unique NFTs
+            </div>
+            <div
+              id="nftButton"
+              className="navbarBoxButton"
+              onClick={handleButtonClick}
+            >
+              {isConnected ? "MINT NOW" : "CONNECT WALLET"}
+            </div>
           </div>
         </div>
-        <div className='navbarRight'>
-          <img src={header2} alt='' className='navbarBoxImage' />
+        <div className="navbarRight">
+          <img src={header2} alt="" className="navbarBoxImage" />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
